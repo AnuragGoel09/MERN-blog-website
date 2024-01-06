@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Container=styled.div`
     display: flex;
@@ -41,13 +43,13 @@ const Input=styled.input`
     border-radius: 20px;
 `;
 
-// const Center=styled.div``;
 
-const Right=styled.div``;
-
-// const NavItems=styled.div``;
-
-const Login=styled.div`
+const Right=styled.div`
+    display: flex;
+    align-items: center;
+    gap: 30px;
+`;
+const Login=styled(Link)`
     display: flex;
     align-items: center;
     background-color: #0d52bd;
@@ -58,6 +60,18 @@ const Login=styled.div`
     cursor: pointer;
     &:hover{
         background-color: #1035ac;
+    }
+    text-decoration: none;
+`;
+
+const Home=styled(HomeIcon)`
+    color: #0d52bd;
+    border: 1px solid #0d52bd;
+    border-radius: 10px;
+    padding: 3px;
+    cursor: pointer;
+    &:hover{
+       color: #1035ac;
     }
 `;
 
@@ -74,14 +88,9 @@ export default function Navbar() {
                 <Input type="text" />
             </Search>
         </Left>
-            {/* <Center>
-                <NavItems>Home</NavItems>
-                <NavItems>About</NavItems>
-                <NavItems>Policy</NavItems>
-                <NavItems>Home</NavItems>
-            </Center>     */}
         <Right>
-            <Login>
+            <Link to="/" style={{display:'flex',alignItems:'center'}}><Home/></Link>
+            <Login to="/login">
                 Login <ArrowRightAltIcon/>
             </Login>
         </Right>
